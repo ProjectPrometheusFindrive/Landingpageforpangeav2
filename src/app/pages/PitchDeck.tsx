@@ -8,7 +8,6 @@ import { HowItWorksSlide } from '../components/pitch/HowItWorksSlide';
 import { VirtuousCycleSlide } from '../components/pitch/VirtuousCycleSlide';
 import { FeaturesSlide } from '../components/pitch/FeaturesSlide';
 import { BenefitsSlide } from '../components/pitch/BenefitsSlide';
-import { PricingSlide } from '../components/pitch/PricingSlide';
 import { CompetitiveAdvantageSlide } from '../components/pitch/CompetitiveAdvantageSlide';
 import { RoadmapSlide } from '../components/pitch/RoadmapSlide';
 import { CTASlide } from '../components/pitch/CTASlide';
@@ -24,7 +23,6 @@ export function PitchDeck() {
     <VirtuousCycleSlide key="cycle" />,
     <FeaturesSlide key="features" />,
     <BenefitsSlide key="benefits" />,
-    <PricingSlide key="pricing" />,
     <CompetitiveAdvantageSlide key="advantage" />,
     <RoadmapSlide key="roadmap" />,
     <CTASlide key="cta" />,

@@ -245,10 +245,10 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
                 >
                   <option value="">선택해주세요</option>
-                  <option value="1-5">5대 이하</option>
-                  <option value="6-20">6-20대</option>
-                  <option value="21-50">21-50대</option>
-                  <option value="51+">50대 이상</option>
+                  <option value="1-5">20대 이하</option>
+                  <option value="6-20">21-50대</option>
+                  <option value="21-50">51-100대</option>
+                  <option value="51+">100대 이상</option>
                 </select>
               </div>
 
@@ -292,12 +292,6 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   취소
                 </button>
               </div>
-
-              {/* 안내 문구 */}
-              <p className="text-xs text-gray-500 text-center pt-2">
-                신청하시면 담당자가 영업일 기준 1일 이내로 연락드립니다.<br />
-                개인정보는 데모 신청 목적으로만 사용됩니다.
-              </p>
             </form>
           )}
         </div>
