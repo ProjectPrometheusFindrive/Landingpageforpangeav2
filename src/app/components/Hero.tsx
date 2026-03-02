@@ -1,61 +1,97 @@
-import { ArrowRight, Shield, TrendingUp } from 'lucide-react';
+import { ArrowRight, Shield, TrendingUp, DollarSign } from 'lucide-react';
+import { useState } from 'react';
+import { DemoModal } from './DemoModal';
+import { useSectionTracking } from '../../hooks/useAnalytics';
+import { trackCTAClick } from '../../utils/analytics';
 
 export function Hero() {
+  useSectionTracking('hero');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleDemoClick = () => {
+    trackCTAClick('hero_demo_button', 'primary');
+    setIsModalOpen(true);
+  };
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
-      
-      <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
-        <div className="flex items-center gap-2 mb-6">
-          <div className="bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 px-4 py-2 rounded-full">
-            <span className="text-sm font-medium">🚀 Pangea v2.0 - RPA 기반 리스크 관리 플랫폼</span>
+    <>
+      <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 text-white overflow-hidden">
+        {/* 배경 패턴 */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-14">
+          <div className="max-w-4xl">
+            {/* 배지 */}
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/30">
+              <Shield className="w-4 h-4" />
+              <span className="text-sm">Pangea: 렌터카 사업자 AI 관리 플랫폼</span>
+            </div>
+
+            {/* 메인 헤드라인 - 그라데이션 텍스트 */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-tight">
+              <span className="text-white">렌터카 사업의</span><br />
+              <span className="bg-gradient-to-r from-cyan-300 to-blue-200 bg-clip-text text-transparent">리스크를 관리하고</span><br />
+              <span className="bg-gradient-to-r from-green-300 to-cyan-300 bg-clip-text text-transparent">성장을 가속화하세요</span>
+            </h1>
+
+            {/* 서브 헤드라인 - 박스 없음 */}
+            <p className="text-lg sm:text-xl leading-relaxed mb-8 text-blue-50">
+              AI 기반 자동 리스크 감지부터 금융연계까지.<br />
+              <span className="inline-block">Pangea는 렌터카 사업자의 지속 가능한 성장을 지원하는 선순환 플랫폼입니다.</span>
+            </p>
+
+            {/* CTA 버튼 */}
+            <div className="mb-10">
+              <button
+                onClick={handleDemoClick}
+                className="group bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105"
+              >
+                무료 데모 신청하기
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            {/* 주요 지표 */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-500/30 rounded-xl mb-4">
+                  <Shield className="w-6 h-6 text-cyan-300" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">99.9%</div>
+                <div className="text-sm md:text-base text-blue-100">자동 리스크 감지율</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="flex items-center justify-center w-12 h-12 bg-green-500/30 rounded-xl mb-4">
+                  <TrendingUp className="w-6 h-6 text-green-300" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">85%</div>
+                <div className="text-sm md:text-base text-blue-100">관리 업무 시간 단축</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="flex items-center justify-center w-12 h-12 bg-yellow-500/30 rounded-xl mb-4">
+                  <DollarSign className="w-6 h-6 text-yellow-300" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">2배</div>
+                <div className="text-sm md:text-base text-blue-100">금융 접근성 향상</div>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-          렌터카 사업의<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">
-            리스크를 관리하고
-          </span><br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300">
-            성장을 가속화하세요
-          </span>
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl leading-relaxed">
-          AI 기반 자동 리스크 감지부터 금융 연계까지. Pangea는 렌터카 사업자의 지속 가능한 성장을 지원하는 선순환 플랫폼입니다.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 mb-16">
-          <button className="bg-white text-blue-900 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2">
-            무료 데모 신청하기
-            <ArrowRight className="w-5 h-5" />
-          </button>
-          <button className="bg-blue-500/20 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-500/30 transition-all flex items-center justify-center gap-2">
-            서비스 소개서 다운로드
-          </button>
+
+        {/* 하단 웨이브 */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+            <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" fill="white"/>
+          </svg>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
-            <Shield className="w-10 h-10 text-cyan-300 mb-3" />
-            <div className="text-3xl font-bold mb-2">100%</div>
-            <div className="text-blue-100">자동 리스크 감지율</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
-            <TrendingUp className="w-10 h-10 text-teal-300 mb-3" />
-            <div className="text-3xl font-bold mb-2">85%</div>
-            <div className="text-blue-100">관리 업무 시간 단축</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
-            <svg className="w-10 h-10 text-yellow-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <div className="text-3xl font-bold mb-2">2배</div>
-            <div className="text-blue-100">금융 접근성 향상</div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+
+      <DemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 }

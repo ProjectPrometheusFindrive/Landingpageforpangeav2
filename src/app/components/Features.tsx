@@ -1,6 +1,9 @@
 import { Activity, Shield, LineChart, Zap, Users, Lock } from 'lucide-react';
+import { useSectionTracking } from '../../hooks/useAnalytics';
 
 export function Features() {
+  const sectionRef = useSectionTracking('features');
+  
   const features = [
     {
       icon: Activity,
@@ -41,13 +44,13 @@ export function Features() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+    <section ref={sectionRef as any} className="py-12 md:py-16 lg:py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 md:mb-12 lg:mb-16">
+          <div className="inline-block bg-purple-100 text-purple-700 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4">
             주요 기능
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             렌터카 사업에 필요한<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
               모든 기능을 하나의 플랫폼에
@@ -55,20 +58,20 @@ export function Features() {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100"
+              className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100"
             >
-              <div className="bg-gradient-to-br from-purple-500 to-pink-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
-                <feature.icon className="w-7 h-7 text-white" />
+              <div className="bg-gradient-to-br from-purple-500 to-pink-500 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-3 md:mb-4">
+                <feature.icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-gray-600 mb-4 leading-relaxed">{feature.description}</p>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">{feature.title}</h3>
+              <p className="text-gray-600 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">{feature.description}</p>
               <ul className="space-y-2">
                 {feature.items.map((item, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-gray-600">
+                  <li key={idx} className="flex items-center text-xs md:text-sm text-gray-600">
                     <svg className="w-4 h-4 text-purple-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>

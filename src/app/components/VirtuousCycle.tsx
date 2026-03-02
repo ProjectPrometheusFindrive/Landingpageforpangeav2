@@ -1,6 +1,9 @@
 import { ArrowRight } from 'lucide-react';
+import { useSectionTracking } from '../../hooks/useAnalytics';
 
 export function VirtuousCycle() {
+  const sectionRef = useSectionTracking('virtuous_cycle');
+  
   const cycleSteps = [
     {
       number: '01',
@@ -41,21 +44,21 @@ export function VirtuousCycle() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjwvY2lyY2xlPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNkb3RzKSIvPjwvc3ZnPg==')] opacity-50"></div>
+    <section ref={sectionRef as any} className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNkb3RzKSIvPjwvc3ZnPg==')] opacity-50"></div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-block bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-10 md:mb-12 lg:mb-16">
+          <div className="inline-block bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4">
             Virtuous Cycle Platform
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Pangea가 만드는<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300">
               성장의 선순환 구조
             </span>
           </h2>
-          <p className="text-xl text-blue-100">
+          <p className="text-base md:text-lg lg:text-xl text-blue-100">
             리스크 관리가 곧 성장의 발판이 되는 혁신적인 플랫폼
           </p>
         </div>
@@ -63,31 +66,31 @@ export function VirtuousCycle() {
         <div className="relative">
           {/* Desktop View */}
           <div className="hidden lg:block">
-            <div className="grid grid-cols-3 gap-8 relative">
+            <div className="grid grid-cols-3 gap-6 xl:gap-8 relative">
               {cycleSteps.map((step, index) => (
                 <div key={index} className="relative">
-                  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all">
-                    <div className={`bg-gradient-to-r ${step.color} w-16 h-16 rounded-xl flex items-center justify-center mb-4 text-2xl font-bold`}>
+                  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 md:p-6 hover:bg-white/15 transition-all">
+                    <div className={`bg-gradient-to-r ${step.color} w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center mb-3 md:mb-4 text-xl md:text-2xl font-bold`}>
                       {step.number}
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-blue-100">{step.description}</p>
+                    <h3 className="text-lg md:text-xl font-bold mb-2">{step.title}</h3>
+                    <p className="text-sm md:text-base text-blue-100">{step.description}</p>
                   </div>
                   
                   {/* Arrows */}
                   {index < cycleSteps.length - 1 && (
-                    <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
-                      <ArrowRight className="w-8 h-8 text-cyan-400" />
+                    <div className="absolute top-1/2 -right-3 xl:-right-4 transform -translate-y-1/2 z-20">
+                      <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-cyan-400" />
                     </div>
                   )}
                   
                   {/* Closing arrow from last to first */}
                   {index === cycleSteps.length - 1 && (
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-8">
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-6 md:mt-8">
                       <div className="flex flex-col items-center">
-                        <div className="h-16 w-0.5 bg-gradient-to-b from-cyan-400 to-transparent mb-2"></div>
-                        <ArrowRight className="w-8 h-8 text-cyan-400 transform rotate-180" />
-                        <div className="text-center mt-4 text-cyan-300 font-semibold">
+                        <div className="h-12 md:h-16 w-0.5 bg-gradient-to-b from-cyan-400 to-transparent mb-2"></div>
+                        <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-cyan-400 transform rotate-180" />
+                        <div className="text-center mt-3 md:mt-4 text-cyan-300 font-semibold text-sm md:text-base">
                           지속적인 성장 반복
                         </div>
                       </div>
@@ -98,30 +101,30 @@ export function VirtuousCycle() {
             </div>
           </div>
           
-          {/* Mobile View */}
-          <div className="lg:hidden space-y-6">
+          {/* Mobile & Tablet View */}
+          <div className="lg:hidden space-y-4 md:space-y-6">
             {cycleSteps.map((step, index) => (
               <div key={index}>
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
-                  <div className={`bg-gradient-to-r ${step.color} w-16 h-16 rounded-xl flex items-center justify-center mb-4 text-2xl font-bold`}>
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 md:p-6">
+                  <div className={`bg-gradient-to-r ${step.color} w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center mb-3 md:mb-4 text-xl md:text-2xl font-bold`}>
                     {step.number}
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-blue-100">{step.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold mb-2">{step.title}</h3>
+                  <p className="text-sm md:text-base text-blue-100">{step.description}</p>
                 </div>
                 
                 {index < cycleSteps.length - 1 && (
-                  <div className="flex justify-center py-3">
-                    <ArrowRight className="w-8 h-8 text-cyan-400 transform rotate-90" />
+                  <div className="flex justify-center py-2 md:py-3">
+                    <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-cyan-400 transform rotate-90" />
                   </div>
                 )}
               </div>
             ))}
             
-            <div className="flex justify-center pt-6">
+            <div className="flex justify-center pt-4 md:pt-6">
               <div className="text-center">
-                <ArrowRight className="w-8 h-8 text-cyan-400 transform rotate-180 mx-auto mb-2" />
-                <div className="text-cyan-300 font-semibold">
+                <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-cyan-400 transform rotate-180 mx-auto mb-2" />
+                <div className="text-cyan-300 font-semibold text-sm md:text-base">
                   지속적인 성장 반복
                 </div>
               </div>

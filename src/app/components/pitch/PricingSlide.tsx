@@ -133,7 +133,7 @@ export function PricingSlide() {
       </div>
 
       <div className="mt-6 text-center text-sm text-gray-600">
-        * 모든 플랜은 14일 무료 체험이 가능합니다 (신용카드 등록 불필요)
+        * 모든 플랜은 무료 체험이 가능합니다 (신용카드 등록 불필요)
       </div>
     </div>
   );

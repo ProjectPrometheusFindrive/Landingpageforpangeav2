@@ -6,8 +6,11 @@ import { Features } from '../components/Features';
 import { Benefits } from '../components/Benefits';
 import { CTA } from '../components/CTA';
 import { Footer } from '../components/Footer';
+import { useScrollTracking } from '../../hooks/useAnalytics';
 
 export function LandingPage() {
+  useScrollTracking();
+  
   return (
     <div className="min-h-screen bg-white">
       <Hero />

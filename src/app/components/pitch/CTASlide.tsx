@@ -25,7 +25,7 @@ export function CTASlide() {
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
             <div className="text-4xl mb-3">🎁</div>
-            <div className="font-bold text-xl mb-2">14일 무료 체험</div>
+            <div className="font-bold text-xl mb-2">무료 체험</div>
             <div className="text-blue-100 text-sm">신용카드 등록 불필요</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">

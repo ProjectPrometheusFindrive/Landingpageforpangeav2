@@ -1,6 +1,9 @@
 import { Bot, Bell, BarChart3, Banknote } from 'lucide-react';
+import { useSectionTracking } from '../../hooks/useAnalytics';
 
 export function SolutionSection() {
+  const sectionRef = useSectionTracking('solution');
+  
   const solutions = [
     {
       icon: Bot,
@@ -60,39 +63,39 @@ export function SolutionSection() {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+    <section ref={sectionRef as any} className="py-12 md:py-16 lg:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 md:mb-12 lg:mb-16">
+          <div className="inline-block bg-blue-100 text-blue-700 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4">
             Pangea의 솔루션
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             RPA로 시작해서<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
               금융 성장까지 연결하는 4단계
             </span>
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-base md:text-lg lg:text-xl text-gray-600">
             단순한 관리 툴이 아닌, 성장을 위한 선순환 플랫폼
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {solutions.map((solution, index) => {
             const colors = colorClasses[solution.color as keyof typeof colorClasses];
             return (
               <div 
                 key={index}
-                className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 ${colors.border} hover:scale-105`}
+                className={`bg-white rounded-2xl p-5 md:p-6 shadow-lg hover:shadow-2xl transition-all border-2 ${colors.border} hover:scale-105`}
               >
-                <div className={`${colors.badge} px-3 py-1 rounded-full text-xs font-bold mb-4 inline-block`}>
+                <div className={`${colors.badge} px-2.5 md:px-3 py-1 rounded-full text-xs font-bold mb-3 md:mb-4 inline-block`}>
                   {solution.step}
                 </div>
-                <div className={`${colors.bg} w-14 h-14 rounded-xl flex items-center justify-center mb-4`}>
-                  <solution.icon className={`w-7 h-7 ${colors.text}`} />
+                <div className={`${colors.bg} w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-3 md:mb-4`}>
+                  <solution.icon className={`w-6 h-6 md:w-7 md:h-7 ${colors.text}`} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{solution.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{solution.description}</p>
+                <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{solution.title}</h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed">{solution.description}</p>
               </div>
             );
           })}
