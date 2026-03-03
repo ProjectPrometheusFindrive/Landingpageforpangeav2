@@ -47,7 +47,7 @@ export function Hero() {
             {/* 서브 헤드라인 - 박스 없음 */}
             <p className="text-lg sm:text-xl leading-relaxed mb-8 text-blue-50">
               리스크를 관리할수록<br />
-              <span className="inline-block">보험료와 금융 조건은 달라질 수 있습니다.</span>
+              <span className="inline-block">더 좋은 보험료와 대출상품을 확보할 수 있습니다.</span>
             </p>
 
             {/* CTA 버튼 */}
@@ -56,7 +56,7 @@ export function Hero() {
                 onClick={handleDemoClick}
                 className="group bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105"
               >
-                운영 리스크 무료 진단받기
+                무료 진단받기
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               
@@ -65,7 +65,7 @@ export function Hero() {
                 className="group bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 border-2 border-green-400/50"
               >
                 <Zap className="w-5 h-5" />
-                상담없이 지금 바로 사용해보기
+                지금 사용해보기
               </button>
             </div>
 
@@ -75,13 +75,13 @@ export function Hero() {
                 <div className="flex items-center justify-center w-12 h-12 bg-blue-500/30 rounded-xl mb-4">
                   <Shield className="w-6 h-6 text-cyan-300" />
                 </div>
-                <div className="text-xl md:text-2xl font-bold mb-2 leading-tight">도난 대응 평균 시간 단축</div>
+                <div className="text-xl md:text-2xl font-bold mb-2 leading-tight">도난 대응<br />평균 시간 단축</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 <div className="flex items-center justify-center w-12 h-12 bg-green-500/30 rounded-xl mb-4">
                   <TrendingUp className="w-6 h-6 text-green-300" />
                 </div>
-                <div className="text-xl md:text-2xl font-bold mb-2 leading-tight">보험 청구 누락 방지</div>
+                <div className="text-xl md:text-2xl font-bold mb-2 leading-tight">미납금 자동 관리</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 <div className="flex items-center justify-center w-12 h-12 bg-yellow-500/30 rounded-xl mb-4">
