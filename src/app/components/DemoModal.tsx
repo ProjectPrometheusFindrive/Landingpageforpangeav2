@@ -156,11 +156,15 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">신청이 완료되었습니다!</h3>
               <p className="text-gray-600 mb-2">
-                입력하신 이메일 주소로<br />
-                무료 사용 URL을 발송했습니다.
+                영업일 기준 24시간 내로<br />
+                담당자가 연락드리겠습니다.
               </p>
               <p className="text-sm text-gray-500">
-                이메일을 확인해주세요. (스팸함도 확인해주세요)
+                빠른 상담을 원하시면{' '}
+                <a href="mailto:prometheus.rok@gmail.com" className="text-blue-600 hover:underline font-semibold">
+                  prometheus.rok@gmail.com
+                </a>
+                으로 문의해주세요.
               </p>
             </div>
           ) : (
@@ -185,7 +189,7 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
               {/* 이메일 */}
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                  이메일 <span className="text-red-500">*</span> <span className="text-gray-500 font-normal">(무료사용 URL을 발송해 드립니다.)</span>
+                  이메일 <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"

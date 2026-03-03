@@ -1,4 +1,4 @@
-import { ArrowRight, Shield, TrendingUp, DollarSign } from 'lucide-react';
+import { ArrowRight, Shield, TrendingUp, DollarSign, Zap } from 'lucide-react';
 import { useState } from 'react';
 import { DemoModal } from './DemoModal';
 import { useSectionTracking } from '../../hooks/useAnalytics';
@@ -11,6 +11,12 @@ export function Hero() {
   const handleDemoClick = () => {
     trackCTAClick('hero_demo_button', 'primary');
     setIsModalOpen(true);
+  };
+
+  const handleMVPClick = () => {
+    trackCTAClick('hero_mvp_button', 'secondary');
+    // MVP URL로 이동 (새 탭에서 열기)
+    window.open('https://your-mvp-url.com', '_blank'); //👈 MVP URL 변경
   };
 
   return (
@@ -34,25 +40,32 @@ export function Hero() {
 
             {/* 메인 헤드라인 - 그라데이션 텍스트 */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-tight">
-              <span className="text-white">렌터카 사업의</span><br />
-              <span className="bg-gradient-to-r from-cyan-300 to-blue-200 bg-clip-text text-transparent">리스크를 관리하고</span><br />
-              <span className="bg-gradient-to-r from-green-300 to-cyan-300 bg-clip-text text-transparent">성장을 가속화하세요</span>
+              <span className="text-white">렌터카 운영 리스크,</span><br />
+              <span className="bg-gradient-to-r from-green-300 to-cyan-300 bg-clip-text text-transparent whitespace-nowrap">체계적으로 관리하고 계십니까?</span>
             </h1>
 
             {/* 서브 헤드라인 - 박스 없음 */}
             <p className="text-lg sm:text-xl leading-relaxed mb-8 text-blue-50">
-              AI 기반 자동 리스크 감지부터 금융연계까지.<br />
-              <span className="inline-block">Pangea는 렌터카 사업자의 지속 가능한 성장을 지원하는 선순환 플랫폼입니다.</span>
+              리스크를 관리할수록<br />
+              <span className="inline-block">보험료와 금융 조건은 달라질 수 있습니다.</span>
             </p>
 
             {/* CTA 버튼 */}
-            <div className="mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <button
                 onClick={handleDemoClick}
                 className="group bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105"
               >
-                무료 데모 신청하기
+                운영 리스크 무료 진단받기
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <button
+                onClick={handleMVPClick}
+                className="group bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 border-2 border-green-400/50"
+              >
+                <Zap className="w-5 h-5" />
+                상담없이 지금 바로 사용해보기
               </button>
             </div>
 
@@ -62,22 +75,19 @@ export function Hero() {
                 <div className="flex items-center justify-center w-12 h-12 bg-blue-500/30 rounded-xl mb-4">
                   <Shield className="w-6 h-6 text-cyan-300" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold mb-2">99.9%</div>
-                <div className="text-sm md:text-base text-blue-100">자동 리스크 감지율</div>
+                <div className="text-xl md:text-2xl font-bold mb-2 leading-tight">도난 대응 평균 시간 단축</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 <div className="flex items-center justify-center w-12 h-12 bg-green-500/30 rounded-xl mb-4">
                   <TrendingUp className="w-6 h-6 text-green-300" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold mb-2">85%</div>
-                <div className="text-sm md:text-base text-blue-100">관리 업무 시간 단축</div>
+                <div className="text-xl md:text-2xl font-bold mb-2 leading-tight">보험 청구 누락 방지</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 <div className="flex items-center justify-center w-12 h-12 bg-yellow-500/30 rounded-xl mb-4">
                   <DollarSign className="w-6 h-6 text-yellow-300" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold mb-2">2배</div>
-                <div className="text-sm md:text-base text-blue-100">금융 접근성 향상</div>
+                <div className="text-xl md:text-2xl font-bold mb-2 leading-tight">운영 데이터 기반 금융 심사 대응</div>
               </div>
             </div>
           </div>
