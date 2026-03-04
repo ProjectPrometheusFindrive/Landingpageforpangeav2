@@ -40,8 +40,8 @@ export function Hero() {
 
             {/* 메인 헤드라인 - 그라데이션 텍스트 */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-tight">
-              <span className="text-white">렌터카 운영 리스크,</span><br />
-              <span className="bg-gradient-to-r from-green-300 to-cyan-300 bg-clip-text text-transparent whitespace-nowrap">체계적으로 관리하고 계십니까?</span>
+              <span className="text-white">도난, 사고, 미납, 렌터카 운영 리스크</span><br />
+              <span className="bg-gradient-to-r from-green-300 to-cyan-300 bg-clip-text text-transparent whitespace-nowrap">체계적으로 관리되고 있습니까?</span>
             </h1>
 
             {/* 서브 헤드라인 - 박스 없음 */}
