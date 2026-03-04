@@ -10,7 +10,7 @@ export function Benefits() {
       icon: TrendingUp,
       title: '업무 시간 85% 단축',
       before: '매일 2-3시간 수동 확인',
-      after: 'RPA가 24시간 자동 모니터링',
+      after: 'AI가 24시간 자동 모니터링',
       image: 'https://images.unsplash.com/photo-1634836466795-2b71a032821c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdXRvbWF0ZWQlMjB3b3JrZmxvdyUyMGNvbXB1dGVyJTIwc2NyZWVufGVufDF8fHx8MTc3MjU3OTU5Mnww&ixlib=rb-4.1.0&q=80&w=1080',
     },
     {
@@ -31,7 +31,7 @@ export function Benefits() {
       icon: DollarSign,
       title: '금융 접근성 개선',
       before: '담보 부족으로 대출 거절',
-      after: '데이터 기반 여신 확보',
+      after: '운영지표 기반 대출 가능성 확대',
       image: 'https://images.unsplash.com/photo-1681505526188-b05e68c77582?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcHByb3ZlZCUyMGxvYW4lMjBoYW5kc2hha2UlMjBidXNpbmVzc3xlbnwxfHx8fDE3NzI1Nzk1OTN8MA&ixlib=rb-4.1.0&q=80&w=1080',
     },
   ];
@@ -111,7 +111,7 @@ export function Benefits() {
                       <div className="flex-shrink-0 w-16 text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded">
                         Before
                       </div>
-                      <p className="text-sm text-gray-600">{benefit.before}</p>
+                      <p className="text-sm text-gray-600 flex-1">{benefit.before}</p>
                     </div>
                     
                     <div className="flex items-center justify-center my-2">
@@ -122,7 +122,7 @@ export function Benefits() {
                       <div className="flex-shrink-0 w-16 text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">
                         After
                       </div>
-                      <p className="text-sm text-gray-900 font-medium">{benefit.after}</p>
+                      <p className="text-sm text-gray-900 font-medium flex-1">{benefit.after}</p>
                     </div>
                   </div>
                 </div>
