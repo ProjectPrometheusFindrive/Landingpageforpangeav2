@@ -209,7 +209,7 @@ export function LocationTerms() {
                     <strong>2.</strong> 위 권리 행사는 고객센터를 통해 가능합니다.
                   </p>
                   <ul className="list-disc pl-6 text-gray-700">
-                    <li>이메일: privacy@findrive.xyz</li>
+                    <li>이메일: prometheus.rok@gmail.com</li>
                   </ul>
                 </div>
               </div>

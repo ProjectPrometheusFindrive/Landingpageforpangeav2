@@ -16,7 +16,7 @@ export function Hero() {
   const handleMVPClick = () => {
     trackCTAClick('hero_mvp_button', 'secondary');
     // MVP URL로 이동 (새 탭에서 열기)
-    window.open('https://your-mvp-url.com', '_blank'); //👈 MVP URL 변경
+    window.open('https://pangea.autos', '_blank');
   };
 
   return (

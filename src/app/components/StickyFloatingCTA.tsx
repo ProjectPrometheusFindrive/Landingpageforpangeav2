@@ -31,7 +31,7 @@ export function StickyFloatingCTA() {
 
   const handleMVPClick = () => {
     trackCTAClick('sticky_mvp_button', 'secondary');
-    window.open('https://your-mvp-url.com', '_blank');
+    window.open('https://pangea.autos', '_blank');
   };
 
   const handleDismiss = () => {
