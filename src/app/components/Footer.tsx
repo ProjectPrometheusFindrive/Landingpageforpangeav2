@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -11,13 +13,17 @@ export function Footer() {
         
         <div className="border-t border-gray-800 pt-6 md:pt-8">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-6 mb-6">
-            <a href="#" className="text-sm hover:text-white transition-colors">
+            <Link to="/privacy" className="text-sm hover:text-white transition-colors">
               개인정보처리방침
-            </a>
+            </Link>
             <span className="hidden sm:inline text-gray-600">|</span>
-            <a href="#" className="text-sm hover:text-white transition-colors">
+            <Link to="/terms" className="text-sm hover:text-white transition-colors">
               이용약관
-            </a>
+            </Link>
+            <span className="hidden sm:inline text-gray-600">|</span>
+            <Link to="/location" className="text-sm hover:text-white transition-colors">
+              위치정보이용약관
+            </Link>
           </div>
           
           <div className="text-center space-y-2">

@@ -249,10 +249,10 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
                 >
                   <option value="">선택해주세요</option>
-                  <option value="1-5">20대 이하</option>
-                  <option value="6-20">21-50대</option>
-                  <option value="21-50">51-100대</option>
-                  <option value="51+">100대 이상</option>
+                  <option value="1-20">20대 이하</option>
+                  <option value="21-50">21-50대</option>
+                  <option value="51-100">51-100대</option>
+                  <option value="101+">100대 이상</option>
                 </select>
               </div>
 
