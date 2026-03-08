@@ -36,7 +36,7 @@ export const trackSectionView = (sectionName: string) => {
 };
 
 // CTA 버튼 클릭 추적
-export const trackCTAClick = (location: 'hero' | 'cta' | 'other', label: string) => {
+export const trackCTAClick = (location: string, label: string) => {
   if (isGALoaded()) {
     window.gtag('event', 'cta_click', {
       event_category: 'conversion',

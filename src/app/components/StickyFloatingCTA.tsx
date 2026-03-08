@@ -1,7 +1,7 @@
-import { ArrowRight, Zap, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { DemoModal } from './DemoModal';
-import { trackCTAClick } from '../../utils/analytics';
+import { ArrowRight, Zap, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { DemoModal } from "./DemoModal";
+import { trackCTAClick } from "../../utils/analytics";
 
 export function StickyFloatingCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,27 +11,28 @@ export function StickyFloatingCTA() {
   useEffect(() => {
     const handleScroll = () => {
       // Hero 섹션 높이 가져오기
-      const heroSection = document.querySelector('section');
+      const heroSection = document.querySelector("section");
       const heroHeight = heroSection?.offsetHeight || 600;
-      
+
       // Hero 섹션을 벗어났을 때 표시
       setIsVisible(window.scrollY > heroHeight);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll(); // 초기 체크
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () =>
+      window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleDemoClick = () => {
-    trackCTAClick('sticky_demo_button', 'primary');
+    trackCTAClick("sticky", "demo_button");
     setIsModalOpen(true);
   };
 
   const handleMVPClick = () => {
-    trackCTAClick('sticky_mvp_button', 'secondary');
-    window.open('https://pangea.autos', '_blank');
+    trackCTAClick("sticky", "mvp_button");
+    window.open("https://pangea.autos", "_blank");
   };
 
   const handleDismiss = () => {
@@ -57,7 +58,7 @@ export function StickyFloatingCTA() {
               무료 진단
               <ArrowRight className="w-4 h-4" />
             </button>
-            
+
             <button
               onClick={handleMVPClick}
               className="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-3 rounded-xl font-semibold text-sm hover:from-green-600 hover:to-emerald-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg active:scale-95"
@@ -65,7 +66,7 @@ export function StickyFloatingCTA() {
               <Zap className="w-4 h-4" />
               바로 시작
             </button>
-            
+
             <button
               onClick={handleDismiss}
               className="p-3 text-gray-400 hover:text-gray-600 transition-colors"
@@ -85,7 +86,7 @@ export function StickyFloatingCTA() {
             무료 진단받기
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-          
+
           <button
             onClick={handleMVPClick}
             className="group bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-4 rounded-xl font-semibold text-base hover:from-green-600 hover:to-emerald-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-2xl hover:shadow-3xl hover:scale-105 border-2 border-green-400/50"
@@ -104,7 +105,10 @@ export function StickyFloatingCTA() {
         </div>
       </div>
 
-      <DemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <DemoModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 }

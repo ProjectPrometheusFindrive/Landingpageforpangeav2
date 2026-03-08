@@ -5,23 +5,23 @@ import { useSectionTracking } from '../../hooks/useAnalytics';
 import { trackCTAClick } from '../../utils/analytics';
 
 export function Hero() {
-  useSectionTracking('hero');
+  const sectionRef = useSectionTracking('hero');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleDemoClick = () => {
-    trackCTAClick('hero_demo_button', 'primary');
+  trackCTAClick('hero', 'demo_button');
     setIsModalOpen(true);
   };
 
   const handleMVPClick = () => {
-    trackCTAClick('hero_mvp_button', 'secondary');
+  trackCTAClick('hero', 'mvp_button');
     // MVP URL로 이동 (새 탭에서 열기)
     window.open('https://pangea.autos', '_blank');
   };
 
   return (
     <>
-      <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 text-white overflow-hidden">
+      <section ref={sectionRef as any} className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 text-white overflow-hidden">
         {/* 배경 패턴 */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
