@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import { useSectionTracking } from '../../../hooks/useAnalytics';
 import { trackCTAClick } from '../../../utils/analytics';
 
@@ -347,9 +348,13 @@ export function LandingFooter() {
           </div>
           <div>
             <h5 className="font-mono-p mb-4 text-[12px] uppercase tracking-[.08em] text-gray-400">Company</h5>
-            {[['#proof', '팀 소개'], ['#faq', 'FAQ'], ['/privacy', '개인정보처리방침'], ['/location', '위치정보이용약관'], ['mailto:prometheus.rok@gmail.com', '문의하기']].map(([h, t]) => (
-              <a key={h} href={h} className="mb-[11px] block text-[14px] text-gray-500 transition hover:text-blue-600">{t}</a>
-            ))}
+            {[['#proof', '팀 소개'], ['#faq', 'FAQ'], ['/privacy', '개인정보처리방침'], ['/location', '위치정보이용약관'], ['mailto:prometheus.rok@gmail.com', '문의하기']].map(([h, t]) =>
+              h.startsWith('/') ? (
+                <Link key={h} to={h} className="mb-[11px] block text-[14px] text-gray-500 transition hover:text-blue-600">{t}</Link>
+              ) : (
+                <a key={h} href={h} className="mb-[11px] block text-[14px] text-gray-500 transition hover:text-blue-600">{t}</a>
+              )
+            )}
           </div>
         </div>
         <div className="font-mono-p mt-11 border-t border-gray-200 pt-6 text-[12.5px] text-gray-400">
