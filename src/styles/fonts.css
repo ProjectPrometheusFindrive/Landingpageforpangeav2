@@ -1,0 +1,14 @@
+/* Pangea landing typography utilities */
+.font-display { font-family: 'Space Grotesk', system-ui, sans-serif; }
+.font-body { font-family: 'IBM Plex Sans KR', system-ui, sans-serif; }
+.font-mono-p { font-family: 'IBM Plex Mono', monospace; }
+
+/* pulse animation for signal dots */
+@keyframes pangea-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(59,232,176,.6); }
+  50% { opacity: .55; box-shadow: 0 0 0 5px rgba(59,232,176,0); }
+}
+.pangea-pulse { animation: pangea-pulse 2s infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .pangea-pulse { animation: none; }
+}
