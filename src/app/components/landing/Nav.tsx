@@ -6,31 +6,31 @@ interface NavProps {
 
 export function Nav({ onOpenDemo }: NavProps) {
   return (
-    <nav className="sticky top-0 z-50 border-b border-[#1F2A3C] bg-[rgba(10,14,20,.72)] backdrop-blur-[14px]">
-      <div className="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-6">
-        <div className="font-display flex items-center gap-2.5 text-[19px] font-bold tracking-[-.02em] text-[#EAF0F7]">
-          <span className="h-[9px] w-[9px] rounded-full bg-[#3BE8B0] shadow-[0_0_12px_#3BE8B0]" />
+    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <div className="flex items-center gap-2.5 text-[20px] font-bold tracking-[-.02em] text-gray-900">
+          <span className="h-[9px] w-[9px] rounded-full bg-blue-600" />
           Pangea
         </div>
 
-        <div className="hidden gap-[30px] text-[14px] text-[#8A97AC] md:flex">
-          <a href="#gap" className="transition hover:text-[#EAF0F7]">문제</a>
-          <a href="#shift" className="transition hover:text-[#EAF0F7]">도입 효과</a>
-          <a href="#platform" className="transition hover:text-[#EAF0F7]">플랫폼</a>
-          <a href="#proof" className="transition hover:text-[#EAF0F7]">팀</a>
-          <a href="#faq" className="transition hover:text-[#EAF0F7]">FAQ</a>
+        <div className="hidden gap-8 text-[14.5px] font-medium text-gray-500 md:flex">
+          <a href="#gap" className="transition hover:text-gray-900">문제</a>
+          <a href="#shift" className="transition hover:text-gray-900">도입 효과</a>
+          <a href="#platform" className="transition hover:text-gray-900">플랫폼</a>
+          <a href="#proof" className="transition hover:text-gray-900">팀</a>
+          <a href="#faq" className="transition hover:text-gray-900">FAQ</a>
         </div>
 
         <div className="flex items-center gap-4">
           <a
             href="https://pangea.autos/login"
-            className="font-display text-[14px] font-medium text-[#8A97AC] transition hover:text-[#EAF0F7]"
+            className="text-[14.5px] font-medium text-gray-600 transition hover:text-gray-900"
           >
             로그인
           </a>
           <button
             onClick={() => { trackCTAClick('other', 'nav_demo'); onOpenDemo(); }}
-            className="font-display rounded-[9px] bg-[#3BE8B0] px-[18px] py-[9px] text-[14px] font-semibold text-[#0A0E14] transition hover:-translate-y-px hover:bg-[#57f0c0]"
+            className="rounded-lg bg-blue-600 px-[18px] py-[9px] text-[14.5px] font-semibold text-white shadow-sm transition hover:-translate-y-px hover:bg-blue-700"
           >
             무료 데모 신청
           </button>
