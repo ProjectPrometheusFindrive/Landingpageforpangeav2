@@ -2,18 +2,18 @@ import { useState } from 'react';
 import { Nav } from '../components/landing/Nav';
 import { HeroSection } from '../components/landing/HeroSection';
 import {
-  GapSection,
-  ShiftSection,
-  PlatformSection,
-  CapsSection,
-  PersonaSection,
-  ProofSection,
-  PilotSection,
+  PainSections,
+  MoatSection,
+  CompareSection,
+  PricingSection,
+  RoadmapSection,
   FaqSection,
+  CtaSection,
   LandingFooter,
 } from '../components/landing/Sections';
 import { DemoModal } from '../components/DemoModal';
 import { useScrollTracking } from '../../hooks/useAnalytics';
+import '../../styles/landing-v7.css';
 
 export function LandingPage() {
   useScrollTracking();
@@ -21,18 +21,17 @@ export function LandingPage() {
   const openDemo = () => setIsDemoOpen(true);
 
   return (
-    <div className="font-body min-h-screen bg-white text-gray-900">
+    <div className="pgv7">
       <Nav onOpenDemo={openDemo} />
-      <HeroSection onOpenDemo={openDemo} />
-      <GapSection />
-      <ShiftSection />
-      <PlatformSection />
-      <CapsSection />
-      <PersonaSection />
-      <ProofSection />
-      <PilotSection onOpenDemo={openDemo} />
+      <HeroSection />
+      <PainSections />
+      <MoatSection />
+      <CompareSection />
+      <PricingSection />
+      <RoadmapSection />
       <FaqSection />
-      <LandingFooter />
+      <CtaSection />
+      <LandingFooter onOpenDemo={openDemo} />
 
       <DemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
     </div>
