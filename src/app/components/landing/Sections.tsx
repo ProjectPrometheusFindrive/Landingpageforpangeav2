@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import { useSectionTracking } from '../../../hooks/useAnalytics';
 import { trackCTAClick } from '../../../utils/analytics';
+import { openCookieSettings } from '../../../utils/consent';
 
 const EYEBROW =
   'font-mono-p mb-4 flex items-center gap-2.5 text-[12.5px] uppercase tracking-[.12em] text-blue-600 before:h-px before:w-[26px] before:bg-blue-600 before:content-[""]';
@@ -14,22 +15,22 @@ export function GapSection() {
   return (
     <section id="gap" ref={ref as any} className="relative z-[1] bg-gray-50 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className={EYEBROW}>The AX Gap · 전환의 간극</div>
-        <h2 className={H2}>렌터카사가 AI 전환을<br />시작하려 할 때 마주하는 벽</h2>
+        <div className={EYEBROW}>The Finance Gap · 금융의 간극</div>
+        <h2 className={H2}>차를 늘려야 성장하는데,<br />차가 늘수록 금융은 어려워집니다</h2>
         <p className={LEDE}>
-          최근 한 중견 렌터카사는 AI 전환을 이끌 전담 리드를 채용 공고로 내걸었습니다. 그 공고에 적힌 과제는, 이 산업이 공통으로 안고 있는 숙제이기도 합니다.
+          운수사업은 차량이 곧 매출입니다. 그런데 차량 구입 자금은 대부분 할부·리스로 조달하고, 그 조건은 회사 규모와 대표자 신용, 차량 담보 가치로 정해집니다.
         </p>
 
         <div className="mt-10 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm md:p-10">
           <p className="max-w-[30ch] border-l-[3px] border-blue-600 pl-6 text-[20px] font-semibold leading-[1.5] tracking-[-.01em] text-gray-900 md:text-[26px]">
-            "영업·CS·자산관리·재무·인사 프로세스를 분석하고, AI를 적용할 영역을 정의하는 것."
+            "캐피탈 업계, 렌터카 사업자에 한도 상향·금리 인하·원금 유예 등 상생 방안 제시"
           </p>
-          <p className="font-mono-p mt-4 pl-[26px] text-[13px] text-gray-400">— 렌터카 업계 AI Transformation Lead 채용 공고 중</p>
+          <p className="font-mono-p mt-4 pl-[26px] text-[13px] text-gray-400">— 파이낸셜뉴스 보도 요지 (2026년 7월)</p>
         </div>
 
         <p className="mt-9 max-w-[62ch] text-[17px] leading-[1.7] text-gray-600">
-          문제는, <span className="font-semibold text-gray-900">AI를 적용할 데이터가 흩어져 있다는 것</span>입니다. 계약은 ERP에, 정비는 정비소 장부에, 사고는 보험사 메일에, 정산은 엑셀에. AI 리드를 채용해도 첫 6개월은 이 데이터를 모으고 잇는 데 쓰입니다.{' '}
-          <b className="font-semibold text-blue-600">Pangea는 바로 그 토대를 제품으로 만들어 둔 회사입니다.</b>
+          문제는, <span className="font-semibold text-gray-900">금융기관이 운수사업자의 실제 운영을 볼 수 없다는 것</span>입니다. 차가 얼마나 쉬지 않고 돌았는지, 정비와 사고는 어떻게 관리됐는지는 심사 서류에 남지 않습니다.{' '}
+          <b className="font-semibold text-blue-600">Pangea는 그 빈칸을 차량 운영 데이터로 채웁니다.</b>
         </p>
       </div>
     </section>
@@ -38,11 +39,11 @@ export function GapSection() {
 
 /* ---------------- Before / After ---------------- */
 const ROWS: { proc: string; code: string; before: string; after: string; afterBold: string }[] = [
-  { proc: '영업 · 계약', code: 'SALES', before: '엑셀 계약 대장, 담당자별 파일 분산, 실시간 가동률 파악 어려움', afterBold: 'ERP 통합 계약 관리', after: ' · 차량·계약·고객 단일 뷰, 가동률 실시간 집계' },
-  { proc: 'CS · 고객 응대', code: 'CS', before: '전화·메신저 분산, 이력 추적 안 됨, 반복 문의 수기 응대', afterBold: 'RPA + 이력 통합', after: ' · 응대 이력 자동 축적, 반복 업무 자동화' },
-  { proc: '자산 · 정비 관리', code: 'FMS', before: '정비 이력 정비소별 장부, 사고 접수 보험사 메일, 차량 상태 파악 지연', afterBold: 'FMS 차량 생애주기 관리', after: ' · 정비·사고·점검 이력 차량 단위 통합' },
-  { proc: '재무 · 정산', code: 'FINANCE', before: '월말 수기 정산, 항목별 대사 반복, 마감에 수일 소요', afterBold: '정산 자동 집계', after: ' · 계약·정비·보험 데이터 연동, 마감 시간 단축' },
-  { proc: '리스크 · 여신', code: 'RISK', before: '담당자 경험에 의존한 연체·사고 위험 판단, 사후 대응', afterBold: 'AI 리스크 스코어링(ACS)', after: ' · 대안신용 기반 사전 위험 점수화' },
+  { proc: '금융기관 찾기', code: 'FIND', before: '차량 영업사원이 추천하는 금융사에 의존, 조건 비교가 어려움', afterBold: '상담 창구 연결', after: ' · 업종과 자금 용도에 맞는 제휴 금융기관·등록 중개업체로 연결' },
+  { proc: '심사 자료', code: 'UNDERWRITE', before: '재무제표·대표자 신용·담보 위주, 실제 운영 실적은 반영되지 않음', afterBold: '운영 데이터 리포트', after: ' · 가동률·매출·정비·사고 이력을 심사 참고자료로 제출' },
+  { proc: '차량 담보 가치', code: 'COLLATERAL', before: '연식과 주행거리로만 평가', afterBold: '차량 상태 증빙', after: ' · 정비·사고 이력으로 담보 차량의 실제 상태를 기록' },
+  { proc: '대출 후 관리', code: 'MONITOR', before: '연체·사고가 난 뒤에야 대응', afterBold: 'FLM 차량 관리', after: ' · 사고·이상 운행·장기 미운행을 바로 알림' },
+  { proc: '다음 조달', code: 'RENEW', before: '다음 대출도 처음부터 다시 증빙', afterBold: '누적 운영 실적', after: ' · 쌓인 데이터가 다음 자금 조달의 근거' },
 ];
 
 export function ShiftSection() {
@@ -50,10 +51,10 @@ export function ShiftSection() {
   return (
     <section id="shift" ref={ref as any} className="relative z-[1] bg-white py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className={EYEBROW}>AS-IS → TO-BE · 업무별 전환 구조</div>
-        <h2 className={H2}>채용으로 0부터 설계할 일을,<br />검증된 구조로 시작하세요</h2>
+        <div className={EYEBROW}>AS-IS → TO-BE · 금융 조달 구조</div>
+        <h2 className={H2}>금융기관이 보지 못하던 운영을,<br />데이터로 보여 줍니다</h2>
         <p className={LEDE}>
-          아래는 실적 자랑이 아니라 <b className="font-semibold text-gray-900">구조 진단</b>입니다. 렌터카 운영의 핵심 프로세스가 지금 어떻게 돌아가고, Pangea 위에서 어떻게 바뀌는지를 그대로 옮겼습니다.
+          운수사업자가 차량 자금을 조달하는 과정이 지금 어떻게 돌아가고, Pangea 위에서 무엇이 달라지는지를 <b className="font-semibold text-gray-900">단계별로</b> 옮겼습니다.
         </p>
 
         <div className="mt-12 overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
@@ -79,7 +80,7 @@ export function ShiftSection() {
             </div>
           ))}
           <div className="font-mono-p border-t border-gray-200 bg-gray-50 px-6 py-4 text-[12px] text-gray-400">
-            * 전환 효과의 정량 수치는 파일럿 파트너사의 실제 데이터로 함께 측정합니다. 과장된 실적 수치 대신, 검증 가능한 구조를 제시합니다.
+            * 대출 승인 여부와 금리·한도는 각 금융기관의 심사로 정해지며, Pangea는 조건 개선을 보장하지 않습니다.
           </div>
         </div>
       </div>
@@ -89,10 +90,10 @@ export function ShiftSection() {
 
 /* ---------------- Platform modules ---------------- */
 const MODS = [
-  { idx: '01 / ERP', title: '통합 운영 관리', desc: '계약·차량·고객·매출을 단일 데이터 모델로 통합합니다. 부서별 엑셀 대신, 하나의 진실된 원장에서 운영합니다.', tags: ['계약 관리', '가동률', '고객 이력'] },
-  { idx: '02 / FMS', title: '차량 자산 관리', desc: '차량 한 대의 입고부터 매각까지 생애주기를 추적합니다. 정비·사고·점검 이력이 차량 단위로 쌓입니다.', tags: ['정비 이력', '사고 관리', '생애주기'] },
-  { idx: '03 / RPA', title: '반복 업무 자동화', desc: '정산 대사, 문서 발급, 데이터 입력 같은 반복 행정을 자동화합니다. 사람은 판단이 필요한 일에 집중합니다.', tags: ['정산 자동화', '문서 발급', '대사'] },
-  { idx: '04 / AI SCORE', title: '리스크 스코어링', desc: '대안신용점수(ACS)로 고객·계약의 연체·사고 위험을 사전에 점수화합니다. 경험이 아닌 데이터로 판단합니다.', tags: ['대안신용(ACS)', '연체 예측', '여신 판단'] },
+  { idx: '01 / REPORT', title: '금융 준비 리포트', desc: '차량·계약·정비·사고 데이터를 금융기관이 읽는 형식으로 정리합니다. 회사 소개서 대신 실제 운영 실적을 보여 줍니다.', tags: ['가동률', '매출 추이', '정비·사고 이력'] },
+  { idx: '02 / CONNECT', title: '금융 상담 연결', desc: '업종과 자금 용도에 맞춰 제휴 금융기관·등록 중개업체의 상담 창구로 연결합니다. 상품 안내·심사·계약은 해당 기관이 진행합니다.', tags: ['차량 구입', '운영 자금', '대환'] },
+  { idx: '03 / FLM', title: '차량 생애주기 관리', desc: '입고부터 매각까지 차량 한 대의 생애주기를 추적합니다. 사고·이상 운행을 알리고, 정비·사고 이력이 차량 단위로 쌓입니다.', tags: ['사고 감지', '정비 이력', '매각 리포트'] },
+  { idx: '04 / SCORE', title: '운영 리스크 지표', desc: '운영 데이터 기반 리스크 지표(ACS)를 금융기관과 함께 검증하고 있습니다. 검증을 거쳐 단계적으로 제공합니다.', tags: ['대안신용(ACS)', '금융기관 공동 검증', '로드맵'] },
 ];
 
 export function PlatformSection() {
@@ -101,7 +102,7 @@ export function PlatformSection() {
     <section id="platform" ref={ref as any} className="relative z-[1] bg-gray-50 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className={EYEBROW}>The Platform · 4개 모듈</div>
-        <h2 className={H2}>흩어진 운영을<br />하나의 데이터 위에서</h2>
+        <h2 className={H2}>금융 준비부터 대출 후 관리까지,<br />하나의 차량 데이터 위에서</h2>
 
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {MODS.map((m) => (
@@ -124,7 +125,7 @@ export function PlatformSection() {
 
 /* ---------------- Capability counters ---------------- */
 const CAPS = [
-  { big: '4', u: ' 모듈', lab: 'ERP·FMS·RPA·AI를 잇는 통합 운영 스택', foot: '// END-TO-END' },
+  { big: '4', u: ' 개 업종', lab: '렌터카·버스·택시·화물 운수사업자', foot: '// FLEET OPERATORS' },
   { big: '40', u: '+ 항목', lab: '차량 1대당 통합 관리되는 운영 데이터 포인트', foot: '// PER VEHICLE' },
   { big: '9', u: '년+', lab: '창업팀의 모빌리티·자율주행 누적 경력', foot: '// DOMAIN DEPTH' },
   { big: '3', u: '사 출신', lab: '쏘카·현대차그룹·42dot에서 쌓은 모빌리티 전문성', foot: '// MOBILITY DNA' },
@@ -155,9 +156,10 @@ export function CapsSection() {
 
 /* ---------------- Personas ---------------- */
 const PERSONAS = [
-  { role: 'C-LEVEL · 경영진', title: 'AI 전환을 결정해야 하는 대표·임원', items: ['전환의 첫걸음을 리드 채용이 아닌 제품으로 단축', '가동률·정산·리스크를 하나의 대시보드로 파악', '데이터 기반 의사결정 체계의 토대 확보'] },
-  { role: 'OPS · 운영 실무', title: '영업·CS·자산관리 담당자', items: ['부서별 엑셀 대신 단일 화면에서 운영', '반복 행정 업무를 RPA로 자동화', '차량·계약·고객 이력을 한 번에 조회'] },
-  { role: 'FINANCE · 재무', title: '정산·여신 담당자', items: ['월말 수기 정산을 자동 집계로 전환', 'AI 리스크 점수로 여신 판단 지원', '연동된 데이터로 마감 시간 단축'] },
+  { role: 'RENTAL · 렌터카', title: '단기·장기 렌터카사', items: ['차량 구입 할부·리스 조달', '성수기 전 증차 자금', '매각 전 차량 상태 증빙'] },
+  { role: 'BUS · 버스', title: '시외·고속·전세버스 운수사', items: ['고가 대형버스 구입 자금', '차령 동안의 차량 상태 관리', '유류·정비 운영 자금'] },
+  { role: 'TAXI · 택시', title: '법인택시 사업자', items: ['차량 교체 자금', '운영 자금', '교대 운행 차량의 사고 관리'] },
+  { role: 'TRUCK · 화물', title: '화물 운송사업자', items: ['화물차 할부 조달', '유류·정비 운영 자금', '운행 기록 관리'] },
 ];
 
 export function PersonaSection() {
@@ -165,9 +167,9 @@ export function PersonaSection() {
   return (
     <section id="who" ref={ref as any} className="relative z-[1] bg-gray-50 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className={EYEBROW}>For whom · 이런 분께</div>
-        <h2 className={H2}>렌터카사의 모든 자리에서<br />같은 데이터를 봅니다</h2>
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className={EYEBROW}>For whom · 업종별 금융 니즈</div>
+        <h2 className={H2}>운수업종마다<br />필요한 금융이 다릅니다</h2>
+        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PERSONAS.map((p) => (
             <div key={p.role} className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white px-7 py-8 shadow-sm before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gradient-to-r before:from-blue-600 before:to-indigo-400 before:content-['']">
               <div className="font-mono-p text-[12px] tracking-[.05em] text-blue-600">{p.role}</div>
@@ -213,9 +215,9 @@ export function ProofSection() {
     <section id="proof" ref={ref as any} className="relative z-[1] bg-white py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className={EYEBROW}>The Team · 모빌리티 전문가 집단</div>
-        <h2 className={H2}>렌터카 데이터를 가장 깊이<br />다뤄본 사람들이 만듭니다</h2>
+        <h2 className={H2}>차량 운영 데이터를 가장 깊이<br />다뤄본 사람들이 만듭니다</h2>
         <p className={LEDE}>
-          Pangea 팀은 쏘카·현대자동차그룹·42dot에서 차량 데이터와 AI 자동화를 직접 설계해 왔습니다. 렌터카 운영의 문제를 밖에서 관찰한 것이 아니라, 안에서 풀어본 사람들입니다.
+          Pangea 팀은 쏘카·현대자동차그룹·42dot에서 차량 데이터와 AI 자동화를 직접 설계해 왔습니다. 운수사업의 문제를 밖에서 관찰한 것이 아니라, 안에서 풀어본 사람들입니다.
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -236,7 +238,7 @@ export function ProofSection() {
           <div className="rounded-2xl border border-gray-200 bg-gray-50 px-7 py-7">
             <div className="font-mono-p text-[12px] uppercase tracking-[.05em] text-gray-400">Domain Depth</div>
             <h4 className="my-2 text-[18px] font-bold text-gray-900">차량 데이터를 아는 팀</h4>
-            <p className="text-[13.5px] leading-[1.65] text-gray-600">CAN 데이터부터 운영 정산까지, 렌터카 한 대에서 나오는 데이터의 흐름을 실제로 다뤄본 경험이 제품의 깊이가 됩니다.</p>
+            <p className="text-[13.5px] leading-[1.65] text-gray-600">CAN 데이터부터 운영 정산까지, 차량 한 대에서 나오는 데이터의 흐름을 실제로 다뤄본 경험이 제품의 깊이가 됩니다.</p>
           </div>
           <div className="rounded-2xl border border-gray-200 bg-gray-50 px-7 py-7">
             <div className="font-mono-p text-[12px] uppercase tracking-[.05em] text-gray-400">Data Sovereignty</div>
@@ -258,27 +260,27 @@ export function PilotSection({ onOpenDemo }: { onOpenDemo: () => void }) {
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-600 px-8 py-16 text-center shadow-xl shadow-blue-600/20 md:px-12">
           <div className="pointer-events-none absolute right-[-5%] top-[-30%] h-[300px] w-[300px] rounded-full bg-white/10 blur-2xl" />
           <h2 className="mx-auto max-w-[24ch] text-[28px] font-bold leading-[1.25] tracking-[-.02em] text-white md:text-[40px]">
-            당신의 렌터카사에서<br />AX의 첫 페이지를 함께 쓰겠습니다
+            다음 차량 금융,<br />운영 데이터로 준비하세요
           </h2>
           <p className="mx-auto mb-8 mt-4 max-w-[52ch] text-[17px] leading-[1.7] text-blue-100">
-            무상 온보딩과 함께, 귀사의 실제 운영 데이터 위에서 Pangea의 효과를 직접 확인하세요. 30분이면 충분합니다.
+            무료 사전 상담에서 업종·보유 차량·자금 용도를 듣고, 준비할 데이터와 연결 가능한 상담 창구를 안내해 드립니다.
           </p>
           <div className="flex flex-wrap justify-center gap-3.5">
             <button
-              onClick={() => { trackCTAClick('cta', 'free_demo'); onOpenDemo(); }}
+              onClick={() => { trackCTAClick('cta', 'finance_consult'); onOpenDemo(); }}
               className="rounded-xl bg-white px-6 py-3.5 text-[15.5px] font-semibold text-blue-700 shadow-lg transition hover:-translate-y-0.5"
             >
-              무료 데모 신청 →
+              금융 사전 상담 신청 →
             </button>
             <button
-              onClick={() => { trackCTAClick('cta', 'demo_30min'); onOpenDemo(); }}
+              onClick={() => { trackCTAClick('cta', 'flm_demo'); onOpenDemo(); }}
               className="rounded-xl border border-white/40 px-5 py-3.5 text-[15.5px] font-medium text-white transition hover:bg-white/10"
             >
-              30분 데모 요청
+              FLM 데모 요청
             </button>
           </div>
           <div className="font-mono-p mt-7 inline-flex items-center gap-2.5 rounded-full border border-white/25 px-4 py-2 text-[13px] text-blue-50">
-            <span className="h-1.5 w-1.5 rounded-full bg-white pangea-pulse" />초기 도입사 대상 · 무상 온보딩 지원
+            <span className="h-1.5 w-1.5 rounded-full bg-white pangea-pulse" />초기 신청사 대상 · 상담 무료
           </div>
         </div>
       </div>
@@ -288,11 +290,11 @@ export function PilotSection({ onOpenDemo }: { onOpenDemo: () => void }) {
 
 /* ---------------- FAQ ---------------- */
 const FAQS = [
-  { q: 'Q1', question: '우리 회사 규모에도 맞나요?', a: '중소·중견 렌터카사를 우선 대상으로 설계했습니다. 대형사의 자체 시스템과 영세사업자의 수기 운영 사이, 통합 시스템이 가장 절실한 규모를 정조준합니다. 보유 차량 규모와 업무 구조에 맞춰 모듈을 선택적으로 적용할 수 있습니다.' },
-  { q: 'Q2', question: '우리는 이미 ERP를 쓰고 있는데 갈아타야 하나요?', a: '전면 교체가 전제는 아닙니다. 파일럿 단계에서 현행 시스템·엑셀의 데이터를 어떻게 잇고 이관할지부터 함께 진단합니다. 흩어진 데이터를 통합하는 것이 AX의 첫걸음이며, Pangea는 그 통합 계층을 제공합니다.' },
-  { q: 'Q3', question: 'AI 리드를 채용하는 것과 무엇이 다른가요?', a: '보완 관계입니다. AI 리드가 0에서 설계할 데이터 통합·자동화 토대를 Pangea가 제품으로 제공합니다. 리드가 있다면 Pangea 위에서 더 빠르게 성과를 낼 수 있고, 아직 없다면 Pangea가 그 출발점이 됩니다.' },
-  { q: 'Q4', question: '우리 운영 데이터는 안전하게 관리되나요?', a: '차량·고객·정산 데이터는 민감정보로 취급합니다. 데이터 소유권은 고객사에 있으며, 접근 권한 구조와 데이터 처리 방식을 도입 단계에서 투명하게 안내합니다.' },
-  { q: 'Q5', question: '파일럿은 어떻게 시작하나요?', a: '무료 데모 신청 후, 귀사의 핵심 업무 프로세스를 함께 진단합니다. 적합하다고 판단되면 파일럿 파트너로 온보딩하며, 범위와 일정은 협의해 정합니다.' },
+  { q: 'Q1', question: 'Pangea가 직접 대출해 주나요?', a: '아니요. Pangea는 대출을 실행하거나 금융상품을 중개하지 않습니다. 운영 데이터를 정리해 제휴 금융기관·등록 중개업체의 상담 창구로 연결하며, 상품 안내·심사·계약은 해당 기관이 진행합니다.' },
+  { q: 'Q2', question: '금리가 낮아지거나 한도가 늘어나나요?', a: '금리와 한도는 각 금융기관의 심사로 정해지며, Pangea가 보장하지 않습니다. 다만 재무제표만으로는 보이지 않는 실제 운영 실적을 함께 제출할 수 있도록 돕습니다.' },
+  { q: 'Q3', question: '어떤 업종이 대상인가요?', a: '렌터카(단기·장기), 시외·고속·전세버스, 법인택시, 화물 운송사업자입니다. 보유 차량 규모와 자금 용도에 맞춰 상담합니다.' },
+  { q: 'Q4', question: '우리 운영 데이터는 누구에게 제공되나요?', a: '귀사가 동의한 범위에서, 동의한 대상에게만 제공합니다. 데이터 소유권은 고객사에 있으며, 제공 범위와 처리 방식을 상담 단계에서 투명하게 안내합니다.' },
+  { q: 'Q5', question: '지금 쓰는 ERP나 관제 단말을 바꿔야 하나요?', a: '아니요. 현재 쓰는 시스템과 엑셀 데이터를 활용하는 것부터 시작합니다. 차량 데이터가 더 필요하면 그때 단말 연동을 함께 검토합니다.' },
 ];
 
 export function FaqSection() {
@@ -337,28 +339,30 @@ export function LandingFooter() {
             <div className="mb-3.5 flex items-center gap-2.5 text-[20px] font-bold text-gray-900">
               <span className="h-[9px] w-[9px] rounded-full bg-blue-600" />Pangea
             </div>
-            <p className="max-w-[34ch] text-[14px] leading-[1.6] text-gray-500">렌터카·모빌리티 사업자를 위한 통합 운영 플랫폼. AI 전환의 첫걸음을 데이터로 시작합니다.</p>
+            <p className="max-w-[34ch] text-[14px] leading-[1.6] text-gray-500">운수사업자를 위한 금융 플랫폼. 차량 운영 데이터로 더 나은 금융을 연결합니다.</p>
             <p className="mt-4 text-[13px] text-gray-400">플로(Flo Corp.) · 경기도 수원시 권선구 당수로129번길 10</p>
+            <p className="mt-3 max-w-[46ch] text-[12px] leading-[1.6] text-gray-400">Pangea는 금융상품판매업자 또는 금융상품판매대리·중개업자가 아니며, 대출 상품의 안내·심사·계약은 제휴 금융기관 및 등록 중개업체가 수행합니다.</p>
           </div>
           <div>
             <h5 className="font-mono-p mb-4 text-[12px] uppercase tracking-[.08em] text-gray-400">Product</h5>
-            {[['#platform', '플랫폼'], ['#shift', '전환 구조'], ['#who', '도입 대상'], ['#pilot', '데모 신청']].map(([h, t]) => (
+            {[['#platform', '플랫폼'], ['#shift', '연결 구조'], ['#who', '업종별 니즈'], ['#pilot', '상담 신청']].map(([h, t]) => (
               <a key={h} href={h} className="mb-[11px] block text-[14px] text-gray-500 transition hover:text-blue-600">{t}</a>
             ))}
           </div>
           <div>
             <h5 className="font-mono-p mb-4 text-[12px] uppercase tracking-[.08em] text-gray-400">Company</h5>
-            {[['#proof', '팀 소개'], ['#faq', 'FAQ'], ['/privacy', '개인정보처리방침'], ['/location', '위치정보이용약관'], ['mailto:prometheus.rok@gmail.com', '문의하기']].map(([h, t]) =>
+            {[['#proof', '팀 소개'], ['#faq', 'FAQ'], ['/privacy', '개인정보처리방침'], ['/location', '위치정보이용약관'], ['mailto:aaron@pangea.autos', '문의하기']].map(([h, t]) =>
               h.startsWith('/') ? (
                 <Link key={h} to={h} className="mb-[11px] block text-[14px] text-gray-500 transition hover:text-blue-600">{t}</Link>
               ) : (
                 <a key={h} href={h} className="mb-[11px] block text-[14px] text-gray-500 transition hover:text-blue-600">{t}</a>
               )
             )}
+            <button onClick={openCookieSettings} className="mb-[11px] block text-left text-[14px] text-gray-500 transition hover:text-blue-600">쿠키 설정</button>
           </div>
         </div>
         <div className="font-mono-p mt-11 border-t border-gray-200 pt-6 text-[12.5px] text-gray-400">
-          © 2026 Flo Corp. · Pangea — Rental Car Operating System · pangea.autos
+          FLM (Fleet Lifecycle Management) 솔루션 Pangea | 운영사 플로(Flo Corp.) · © 2026
         </div>
       </div>
     </footer>
