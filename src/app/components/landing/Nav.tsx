@@ -15,8 +15,9 @@ export function Nav({ onOpenDemo }: NavProps) {
 
         <div className="hidden gap-8 text-[14.5px] font-medium text-gray-500 md:flex">
           <a href="#gap" className="transition hover:text-gray-900">문제</a>
-          <a href="#shift" className="transition hover:text-gray-900">도입 효과</a>
+          <a href="#shift" className="transition hover:text-gray-900">연결 구조</a>
           <a href="#platform" className="transition hover:text-gray-900">플랫폼</a>
+          <a href="#who" className="transition hover:text-gray-900">업종</a>
           <a href="#proof" className="transition hover:text-gray-900">팀</a>
           <a href="#faq" className="transition hover:text-gray-900">FAQ</a>
         </div>
@@ -29,10 +30,10 @@ export function Nav({ onOpenDemo }: NavProps) {
             로그인
           </a>
           <button
-            onClick={() => { trackCTAClick('other', 'nav_demo'); onOpenDemo(); }}
+            onClick={() => { trackCTAClick('other', 'nav_finance_consult'); onOpenDemo(); }}
             className="rounded-lg bg-blue-600 px-[18px] py-[9px] text-[14.5px] font-semibold text-white shadow-sm transition hover:-translate-y-px hover:bg-blue-700"
           >
-            무료 데모 신청
+            금융 상담 신청
           </button>
         </div>
       </div>
