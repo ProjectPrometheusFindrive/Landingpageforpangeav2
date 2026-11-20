@@ -133,8 +133,8 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
         <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 md:px-8 py-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">무료 데모 신청</h2>
-              <p className="text-blue-100 text-sm md:text-base">무료 체험으로 Pangea의 모든 기능을 경험해보세요</p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">금융 사전 상담 신청</h2>
+              <p className="text-blue-100 text-sm md:text-base">업종과 자금 용도를 알려 주시면 영업일 1일 이내 연락드립니다</p>
             </div>
             <button
               onClick={onClose}
@@ -161,8 +161,8 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
               </p>
               <p className="text-sm text-gray-500">
                 빠른 상담을 원하시면{' '}
-                <a href="mailto:prometheus.rok@gmail.com" className="text-blue-600 hover:underline font-semibold">
-                  prometheus.rok@gmail.com
+                <a href="mailto:aaron@pangea.autos" className="text-blue-600 hover:underline font-semibold">
+                  aaron@pangea.autos
                 </a>
                 으로 문의해주세요.
               </p>
@@ -268,7 +268,7 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                  placeholder="궁금하신 내용을 자유롭게 작성해주세요"
+                  placeholder="업종(렌터카·버스·택시·화물)과 자금 용도(차량 구입·운영 자금·대환)를 적어 주세요"
                 />
               </div>
 
@@ -286,7 +286,7 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   disabled={isSubmitting}
                   className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                 >
-                  {isSubmitting ? '신청 중...' : '무료 데모 신청하기'}
+                  {isSubmitting ? '신청 중...' : '상담 신청하기'}
                 </button>
                 <button
                   type="button"
