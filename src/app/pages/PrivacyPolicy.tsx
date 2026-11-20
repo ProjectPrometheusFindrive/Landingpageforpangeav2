@@ -25,7 +25,7 @@ export function PrivacyPolicy() {
           </h1>
           <div className="text-sm text-gray-500 mb-8 space-y-1">
             <p>시행일자: 2026년 1월 12일</p>
-            <p>최종개정: 2026년 1월 12일</p>
+            <p>최종개정: 2026년 11월 19일</p>
           </div>
 
           <p className="text-gray-700 leading-relaxed mb-8">
@@ -179,6 +179,20 @@ export function PrivacyPolicy() {
                 <li>데이터 암호화 및 접근기록 보관</li>
                 <li>보안프로그램 설치 및 정기 점검</li>
                 <li>내부관리계획 수립 및 교육 실시</li>
+              </ul>
+            </section>
+
+            {/* 제8조의2 */}
+            <section id="cookies" className="mb-8 scroll-mt-24">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">제8조의2 (개인정보 자동 수집 장치의 설치·운영 및 거부)</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                회사는 웹사이트(landing.pangea.autos) 이용 과정에서 쿠키(cookie)를 사용합니다. 쿠키는 웹사이트가 이용자의 브라우저에 저장하는 작은 텍스트 파일입니다.
+              </p>
+              <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                <li>필수 쿠키: 쿠키 선택 내용 저장 등 사이트 작동에 필요하며, 별도 동의 없이 사용합니다.</li>
+                <li>분석 쿠키(선택): Google Analytics, Microsoft Clarity를 통해 방문 경로, 페이지 체류, 스크롤·클릭 등 이용 행태를 분석해 서비스를 개선합니다. 이용자가 동의한 경우에만 사용합니다.</li>
+                <li>분석 쿠키에 동의하지 않아도 웹사이트의 모든 기능을 이용할 수 있습니다.</li>
+                <li>설정 변경: 웹사이트 하단의 '쿠키 설정'에서 언제든지 동의를 변경하거나 철회할 수 있으며, 브라우저 설정에서 쿠키 저장을 거부할 수도 있습니다.</li>
               </ul>
             </section>
 
